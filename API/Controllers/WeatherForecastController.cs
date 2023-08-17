@@ -2,9 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
 
-[ApiController]
-[Route("[controller]")]
-public class WeatherForecastController : ControllerBase
+public class WeatherForecastController : BaseApiController
 {
     private static readonly string[] Summaries = new[]
     {
@@ -17,6 +15,8 @@ public class WeatherForecastController : ControllerBase
     {
         _logger = logger;
     }
+
+    public ILogger<WeatherForecastController> Logger => _logger;
 
     [HttpGet(Name = "GetWeatherForecast")]
     public IEnumerable<WeatherForecast> Get()
