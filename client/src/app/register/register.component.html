@@ -1,0 +1,33 @@
+
+<form #registerForm="ngForm" (ngSubmit)="register()" autocomplete="off">
+    <div class="" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+        <div class="modal-dialog">
+          <div class="modal-content">
+          <div class="form-structor">
+          <div class="signup">
+              <h2 class="form-title" id="signup">Sign up</h2>
+              <div class="form-holder">
+                  <input type="text" class="input" placeholder="Name" name="username" [(ngModel)]="model.username"/>
+                  <!-- <input type="email" class="input" placeholder="Email" [(ngModel)]="model.username"/> -->
+                  <input type="password" class="input" placeholder="Password" name="password" [(ngModel)]="model.password"/>
+              </div>
+              <button class="submit-btn" type="submit">Sign up</button>
+              <button class="submit-btn" (click)="cancelregister()">Cancel</button>
+          </div>
+          <div class="login slide-up">
+              <div class="center">
+                  <h2 class="form-title" id="login">Log in</h2>
+                  <div class="form-holder">
+                      <input type="email" class="input" placeholder="Email" />
+                      <input type="password" class="input" placeholder="Password" />
+                  </div>
+                  <button class="submit-btn">Log in</button>
+                  <a class="forgot" href="#">Forgot Password?</a>
+              </div>
+          </div>
+          </div>
+          
+          </div>
+        </div>
+      </div>    
+</form>
