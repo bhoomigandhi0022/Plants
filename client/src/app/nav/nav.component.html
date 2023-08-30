@@ -30,22 +30,22 @@
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="#">Plants</a>
-      
+      <a class="navbar-brand" routerLink="/" routerLinkActive="active">Plants</a>
+      <ng-container *ngIf="accountservices.currentUser$ | async">
         <ul class="navbar-nav me-auto mb-2 mb-md-0" *ngIf="accountservices.currentUser$ | async">
           <li class="nav-item">
-            <a class="nav-link" href="#">Sign Up</a>
+            <a class="nav-link" routerLinkActive="active">Sign Up</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Categories</a>
+            <a class="nav-link" routerLink="/categories" routerLinkActive="active">Categories</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link">Messages</a>
+            <a class="nav-link" routerLink="/messages" routerLinkActive="active">Messages</a>
           </li>
         </ul>
-
-        <div class="dropdown" *ngIf="accountservices.currentUser$ | async" dropdown>
-            <a class="dropdown-toggle text-light text-decoration-none" dropdownToggle>Welcome user</a>
+      </ng-container>
+        <div class="dropdown" *ngIf="(accountservices.currentUser$ | async) as user" dropdown>
+            <a class="dropdown-toggle text-light text-decoration-none" dropdownToggle>Welcome {{user.username | titlecase}}</a>
             <div class="dropdown-menu" *dropdownMenu>
                 <a class="dropdown-item">Edit Profile</a>
                 <a class="dropdown-item" (click)="logout()">Logout</a>
